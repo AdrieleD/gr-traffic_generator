@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<block>
+  <name>Traffic_Generator_Random</name>
+  <key>traffic_generator_Traffic_Generator_Random</key>
+  <category>traffic_generator</category>
+  <import>import traffic_generator</import>
+  <make>traffic_generator.Traffic_Generator_Random($Interval, $Length, $Num, $Type)</make>
+   <!-- 
+    opçao do intervalo
+    -->
+  <param>
+		<name>Interval (ms)</name>
+		<key>Interval</key>
+		<value>0</value>
+		<type>int</type>
+	</param>
+
+    <!-- 
+    opçao do tamanho
+    -->
+    <param>
+		<name>Length</name>
+		<key>Length</key>
+		<value>0</value>
+		<type>int</type>
+	</param>
+  
+      <!-- 
+    opçao de quantidade
+    -->
+    <param>
+		<name>Num Messages</name>
+		<key>Num</key>
+		<value>-1</value>
+		<type>int</type>
+	</param>
+
+ <!-- 
+    opçao do tipo de entrada
+    -->
+  <param>
+		<name>Input Type</name>
+		<key>Type</key>
+		<type>enum</type>
+		<option>
+			<name>Complex</name>
+			<key>complex</key>
+			<opt>size:gr.sizeof_gr_complex</opt>
+		</option>
+		<option>
+			<name>Float</name>
+			<key>float</key>
+			<opt>size:gr.sizeof_float</opt>
+		</option>
+		<option>
+			<name>Int</name>
+			<key>int</key>
+			<opt>size:gr.sizeof_int</opt>
+		</option>
+	</param>
+  <sink>
+    <name>Interval</name>
+    <type>$Type</type>
+    <optional>1</optional>
+  </sink>
+  
+  <sink>
+    <name>Length</name>
+    <type>$Type</type>
+    <optional>1</optional>
+  </sink>
+
+  <source>
+    <name>msg_out</name>
+    <type>message</type>
+    <optional>1</optional>
+  </source>
+</block>

@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<block>
+  <name>Distribution</name>
+  <key>traffic_generator_Distribution</key>
+  <category>traffic_generator</category>
+  <import>import traffic_generator</import>
+  <make>traffic_generator.Distribution($Min, $Max, $Shape, $Model, $Type)</make>
+ <!-- 
+    opçao do mínimo
+    -->
+  
+  <param>
+		<name>Min</name>
+		<key>Min</key>
+		<value>0</value>
+		<type>int</type>
+	</param>	
+    <!-- 
+    opçao do maximo
+    -->
+    <param>
+		<name>Max</name>
+		<key>Max</key>
+		<value>...</value>
+		<type>int</type>
+	</param>
+  <!-- 
+    opçao do Modo
+    -->
+ 	<param>
+		<name>Shape</name>
+		<key>Shape</key>
+		<value>0</value>
+		<type>float</type>
+	</param>
+	
+    <!-- 
+    opçao do modelo de distibuiçao
+    -->
+  <param>
+		<name>Model</name>
+		<key>Model</key>
+		<value>...</value>
+		<type>int</type>
+
+    <option>
+			<name>Poisson</name>
+			<key>0</key>
+		</option>
+    
+    <option>
+			<name>Pareto</name>
+			<key>1</key>
+		</option>
+		
+    <option>
+			<name>Weibull</name>
+			<key>2</key>
+		</option>
+		
+    <option>
+			<name>Zipf</name>
+			<key>3</key>
+    </option>    
+		
+    <option>
+			<name>Uniforme</name>
+			<key>4</key>
+		</option>
+	</param>
+   
+   <!-- 
+    opçao do tipo de saida
+    -->
+  <param>
+		<name>Output Type</name>
+		<key>Type</key>
+		<type>enum</type>
+		<option>
+			<name>Complex</name>
+			<key>complex</key>
+			<opt>size:gr.sizeof_gr_complex</opt>
+		</option>
+		<option>
+			<name>Float</name>
+			<key>float</key>
+			<opt>size:gr.sizeof_float</opt>
+		</option>
+		<option>
+			<name>Int</name>
+			<key>int</key>
+			<opt>size:gr.sizeof_int</opt>
+		</option>
+	</param>
+  <source>
+    <name>out_msg</name>
+    <type>message</type>  <!-- msg   -->
+    <optional>1</optional>
+  </source>
+	<source>
+		<name>out</name>
+		<type>$Type</type>
+    <optional>1</optional>
+  </source>
+
+
+</block>
+
+<!-- e.g. int, float, complex, byte, short, xxx_vector, ...-->
+  
