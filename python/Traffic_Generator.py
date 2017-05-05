@@ -91,6 +91,6 @@ class Traffic_Generator(gr.sync_block):
         msg = self.message_generat(length)    
         while num > 0 or num < 0 :
             self.message_port_pub(pmt.intern('msg_out'), pmt.to_pmt(msg))
-            time.sleep(interval/1000)
+            time.sleep(interval/1000.0)
             num = num - 1    
         self.message_port_pub(pmt.intern('msg_out'), pmt.PMT_EOF)

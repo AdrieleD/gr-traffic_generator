@@ -109,7 +109,7 @@ class Traffic_Generator_Random(gr.sync_block):
     def send_msg(self, length, interval):
         msg = self.message_generat(length)
         self.message_port_pub(pmt.intern('msg_out'), pmt.to_pmt(msg))
-        time.sleep(interval/1000)
+        time.sleep(interval/1000.0)
 
     def send_EOF(self, num):
         if num == 1:
